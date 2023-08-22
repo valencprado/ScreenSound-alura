@@ -1,5 +1,6 @@
 ﻿// Screen Sound
 string mensagem = "Boas vindas ao Screen Sound!\n\n";
+ List<string> bandas = new List<string>();
 
 void ExibirMensagemDeBoasVindas()
 {
@@ -18,6 +19,7 @@ void ExibirMensagemDeBoasVindas()
 
 void ExibirMenu()
 {
+    ExibirMensagemDeBoasVindas();
     Console.WriteLine("Digite 1 para registrar banda");
     Console.WriteLine("Digite 2 para listar bandas");
     Console.WriteLine("Digite 3 para avaliar uma banda");
@@ -26,11 +28,62 @@ void ExibirMenu()
     string opcaoEscolhida = Console.ReadLine()!;
     int opcaoNumber = int.Parse(opcaoEscolhida);
 
-    if(opcaoNumber == 1)
+    switch (opcaoNumber)
     {
-        Console.WriteLine("Você escolheu: registrar nova banda.");
+        case 1:
+            RegistrarBanda();
+            break;
+        case 2:
+            ExibirBandas();
+            break;
+        case 3:
+            Console.WriteLine("Você escolheu a opção: avaliar banda");
+            break;
+        case 4:
+            Console.WriteLine("Você escolheu a opção: exibir média da banda");
+            break;
+        case -1:
+            Console.WriteLine("Você escolheu sair. Tchauzinho!");
+            break;
+        default:
+            Console.WriteLine("Opção inválida!");
+            break;
+
     }
-   
 }
-ExibirMensagemDeBoasVindas();
+
+void RegistrarBanda()
+{
+    Console.Clear();
+    Console.WriteLine("Registro de bandas");
+    Console.Write("Digite o nome da banda que deseja registrar: ");
+    string banda = Console.ReadLine()!;
+    bandas.Add(banda);
+    Console.WriteLine($"Banda registrada: {banda}");
+    Thread.Sleep(2000);
+    Console.Clear();
+    ExibirMenu();
+
+}
+
+void ExibirBandas()
+{
+    Console.Clear();
+    Console.WriteLine("Bandas registradas: ");
+    /*
+    for(int i = 0; i < bandas.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}:{bandas[i]}");
+    }
+    */
+    foreach (string banda in bandas)
+    {
+        Console.WriteLine($"{banda}");
+    }
+    Console.Write("\nDigite uma tecla para retornar ao menu\n");
+    Console.ReadKey();
+    Console.Clear();
+    ExibirMenu();
+
+}
 ExibirMenu();
