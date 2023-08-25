@@ -6,8 +6,8 @@ Conceitos abordados:
 - Dicionários
 - Funções
 
-  Funcionalidades:
-  - registrar banda
-  - listar bandas
-  - avaliar banda já registrada
-  - exibir média das avaliações (desafio)
+Funcionalidades:
+- registrar banda
+- listar bandas
+- avaliar banda já registrada
+- exibir média das avaliações (desafio)
